@@ -1,0 +1,80 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	width:100%;
+}
+.voteContainer{
+	position: relative;
+	width: 100%;
+	background: #000;
+}
+.voteBg{
+	width:100%;
+}
+.voteBg img{
+	width: 100%;
+}
+
+/*投票*/
+.voteMain{
+	width:100%;
+	position: absolute;
+	bottom: 2.632%;
+	left:0;
+}
+.voteMainCon{
+	width:78.933%;
+	margin: 0 auto;
+	padding:10.01% 0;
+}
+.voteTitle{
+	width: 100%;
+	text-align: center;
+}
+.voteTxt{
+	color: #07ab70;
+	font-size: 15px;
+	font-weight: 600;
+}
+#divVote{
+	width:100%;
+	padding:6.01% 0;
+}
+#divVote table{
+	width: 100%;
+}
+#divVote td{
+	padding: 2.6% 0;
+	padding-right: 3%;
+	font-size: 13px;
+}
+#divVote td input{
+	margin-left:1%;
+}
+.tbTxt{
+	color: #a0a0a0;
+	font-size: 12px !important;
+}
+.voteButton{
+	width:100%;
+	text-align: center;
+}
+.voteBtn{
+	width:41.667%;
+}
+
+/*进度条*/
+.voteProgress{
+	width:100%;
+	position: absolute;
+	bottom: 2.632%;
+	left:0;
+	display: none;
+}
+#divVoteSuccess{
+	width:78.933%;
+	margin: 0 auto;
+	padding:16.01% 0;
+}

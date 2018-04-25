@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+	<head>
+		<meta name="viewport" content="width=device-width" />
+		<title>Index</title>
+		<meta charset="utf-8">
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta http-equiv="Expires" content="-1" />
+		<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1.0,maximum-scale=1.0" />
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="black" name="apple-mobile-web-app-status-bar-style">
+		<meta content="telephone=no" name="format-detection">
+		<meta content="email=no" name="format-detection">
+
+		<!--css js-->
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/vote.css" />
+	</head>
+
+	<body>
+		<div class="voteContainer">
+			<div class="voteBg">
+				<img src="image/voteBgImg.jpg" />
+			</div>
+			<div class="voteMain">
+				<div class="voteMainCon">
+					<div class="voteTitle">
+						<p class="voteTxt">恭喜您获得1次订制您专属主打车的资格！ </p>
+						<p class="voteTxt">以下得票最多的将成为7月主打车:</p>
+					</div>					
+					<div id="divVote">
+						<table>
+							<tr>
+								<td class="tbTxt"></td>
+								<td class="tbTxt">车型</td>
+								<td class="tbTxt">适配规格</td>
+								<td class="tbTxt">保有量</td>
+							</tr>
+							<tr>
+								<td><input type="radio" name="carselect" value="1" /></td>
+								<td>奥迪A6L/A4L</td>
+								<td>225/55R16</td>
+								<td>106万</td>
+
+							</tr>
+							<tr>
+								<td><input type="radio" name="carselect" value="2" /></td>
+								<td>现代瑞纳</td>
+								<td>195/50R16</td>
+								<td>88万</td>
+							</tr>
+							<tr>
+								<td><input type="radio" name="carselect" value="3" /></td>
+								<td>别克GL8</td>
+								<td>225/60R16</td>
+								<td>72万</td>
+							</tr>
+							<tr>
+								<td><input type="radio" name="carselect" value="4" /></td>
+								<td>大众高尔夫</td>
+								<td>225/45R17</td>
+								<td>91万</td>
+							</tr>
+							<tr>
+								<td><input type="radio" name="carselect" value="5" /></td>
+								<td>起亚狮跑</td>
+								<td>235/60R16</td>
+								<td>41万</td>
+							</tr>
+						</table>
+					</div>
+					<div class="voteButton">
+						<img src="image/voteBtn.png" class="voteBtn" id="btnSubmit" onclick="submitVote()" />
+					</div>
+				</div>
+			</div>
+
+			<!--进度条-->
+			<div class="voteProgress">
+				<div id="divVoteSuccess">
+
+					<div class="skillbar clearfix " id='skillbar1' data-percent="20%">
+
+						<div class="skillbar-title" style="background: #d35400;"><span>奥迪</span></div>
+
+						<div class="skillbar-bar" style="background: #e67e22;"></div>
+
+						<div class="skill-bar-percent">20%</div>
+
+					</div>
+					<!-- End Skill Bar -->
+
+					<div class="skillbar clearfix " id='skillbar2' data-percent="25%">
+
+						<div class="skillbar-title" style="background: #2980b9;"><span>现代瑞纳</span></div>
+
+						<div class="skillbar-bar" style="background: #3498db;"></div>
+
+						<div class="skill-bar-percent">25%</div>
+
+					</div>
+					<!-- End Skill Bar -->
+
+					<div class="skillbar clearfix " id='skillbar3' data-percent="100%">
+
+						<div class="skillbar-title" style="background: #27ae60;"><span>别克GL8</span></div>
+
+						<div class="skillbar-bar" style="background: #2ecc71;"></div>
+
+						<div class="skill-bar-percent">100%</div>
+
+					</div>
+					<!-- End Skill Bar -->
+
+					<div class="skillbar clearfix " id='skillbar4' data-percent="40%">
+
+						<div class="skillbar-title" style="background: #46465e;"><span>大众高尔夫</span></div>
+
+						<div class="skillbar-bar" style="background: #5a68a5;"></div>
+
+						<div class="skill-bar-percent">40%</div>
+
+					</div>
+					<!-- End Skill Bar -->
+
+					<div class="skillbar clearfix " id='skillbar5' data-percent="70%">
+
+						<div class="skillbar-title" style="background: #124e8c;"><span>起亚狮跑</span></div>
+
+						<div class="skillbar-bar" style="background: #4288d0;"></div>
+
+						<div class="skill-bar-percent">70%</div>
+
+					</div>
+					<!-- End Skill Bar -->
+
+				</div>
+			</div>
+
+		</div>
+
+		<script>
+			$(function() {			
+				
+			});
+			//投票事件
+			function submitVote() {		
+				if ($("#divVote input[name='carselect']").is(":checked")) {
+					$(".voteMain").hide();
+					$(".voteProgress").show();
+					$('.skillbar').each(function() {
+						$(this).find('.skillbar-bar').animate({
+							width: $(this).attr('data-percent')
+						}, 3000);
+					});
+				}else{
+					alert("请先投票");
+				}
+					
+				}
+			//			function submitVote() {
+			//				alert('dd');
+			//				$.ajax({
+			//					url: '@Url.GetConfigValue("GitiCenterAPI")' + '/api/FlagShipCarVote/DoVote',
+			//					type: "POST",
+			//					data: {
+			//						"VoteOption": '1',
+			//						"VoteOptionName": '1',
+			//						"PartnerCode": '1',
+			//						"PartnerUserName": '1'
+			//					},
+			//					success: function(data) {
+			//						alert(data);
+			//					},
+			//					error: function(data) {
+			//						PurchaseIdentifier = true;
+			//						alert("失败")
+			//					}
+			//				})
+			//			}
+		</script>
+
+	</body>
+
+</html>
